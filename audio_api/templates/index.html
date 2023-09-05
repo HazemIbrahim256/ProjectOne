@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Speech to Text Example</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+
+    <button id="nightModeButton"><span><i class="fa-solid fa-moon"></i></span></button>
+    <div class="container">
+        <div class="uploadFile row justify-content-center">
+            <div class="col-md-9 mb-0 p-0">
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="audioUpload" class="form-label">Upload Audio File:</label>
+                        <input type="file" id="audioUpload" name="audioFile" accept="audio/*" class="form-control-file">
+                    </div>
+                    <button type="submit" class="submit btn btn-outline-success">Upload</button>
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="sourceLanguage" class="form-label">Source Language:</label>
+                    <select id="sourceLanguage"  class="form-select">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="it">Italian</option>
+                        <option value="ar">Arabic</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="recordButtons">
+                    <button id="startButton" class="btn btn-success">Start Recording</button>
+                    <button id="stopButton" class="btn btn-danger" disabled>Stop</button>
+                    <button id="pauseButton" class="btn btn-outline-warning" disabled>Pause</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- <div class="row justify-content-center">
+            <div class="col-md-6">
+                <audio id="audioPlayer" controls class="w-100 mt-3"></audio>
+            </div>
+        </div> -->
+    
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="transcription">
+                    <h2 class="mb-3">Transcription</h2>
+                    <textarea id="transcript" readonly class="form-control" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="targetLanguage" class="form-label">Target Language:</label>
+                    <select id="targetLanguage"  class="form-select">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="it">Italian</option>
+                        <option value="ar">Arabic</option>
+                    </select>
+                </div>
+                <div class="translation">
+                    <h2 class="mb-3">Translation</h2>
+                    <textarea id="translation" readonly class="form-control" rows="5"></textarea>
+                </div>
+                <div id="ner-output">
+                    <h2 class="mb-3">Named Entity Recognition:</h2>
+                    <!-- <p id="ner-output-text"></p> -->
+                    <textarea id="ner-output-text" readonly class="form-control" rows="5"></textarea>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+
+
+
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
